@@ -17,7 +17,7 @@ def get_status(user_id):
         "access_token": access_token,
     }
     status = requests.post(url, params=params)
-    return status.json()["response"][0]["online"]  # Верните статус пользователя в ВК
+    return status.json()["response"][0]["online"]
 
 
 def sms_sender(sms_text):
@@ -27,7 +27,7 @@ def sms_sender(sms_text):
     number_from = os.getenv("NUMBER_FROM")
     number_to = os.getenv("NUMBER_TO")
     message = client.messages.create(body=sms_text, from_=number_from, to=number_to)
-    return message.sid  # Верните sid отправленного сообщения из Twilio
+    return message.sid
 
 
 if __name__ == "__main__":
